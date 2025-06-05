@@ -19,7 +19,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'dimona_usa_api_api',
-    version: '0.0.1-alpha.1',
+    version: '1.0.0',
   },
   {
     capabilities: {
