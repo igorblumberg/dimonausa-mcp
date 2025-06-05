@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 (2025-06-05)
+
+Full Changelog: [v0.0.1-alpha.1...v1.0.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v0.0.1-alpha.1...v1.0.0)
+
+### Chores
+
+* update SDK settings ([e82c076](https://github.com/igorblumberg/dimonausa-mcp/commit/e82c07694a78d062284ba86f1f21e36cd01cfde3))
+
 ## 0.0.1-alpha.1 (2025-06-05)
 
 Full Changelog: [v0.0.1-alpha.0...v0.0.1-alpha.1](https://github.com/igorblumberg/dimonausa-mcp/compare/v0.0.1-alpha.0...v0.0.1-alpha.1)
