@@ -2,7 +2,7 @@
 
 import type { DimonaUsaAPI } from '../client';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: DimonaUsaAPI;
 
   constructor(client: DimonaUsaAPI) {
