@@ -37,8 +37,8 @@ export const tool: Tool = {
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
   const { 'order-uuid': order_uuid, ...body } = args as any;
-  await client.v2021.orders.cancel(order_uuid, body);
-  return asTextContentResult('Successful tool call');
+  const response = await client.v2021.orders.cancel(order_uuid, body).asResponse();
+  return asTextContentResult(await response.text());
 };
 
 export default { metadata, tool, handler };
