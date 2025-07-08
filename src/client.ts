@@ -17,6 +17,18 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { V3, V3SubmitOrderParams } from './resources/v3';
+import {
+  Analytics,
+  AnalyticsMetadata,
+  AnalyticsRetrieveDailyOperationsParams,
+  AnalyticsRetrieveDailyOperationsResponse,
+  AnalyticsRetrieveProductionSummaryParams,
+  AnalyticsRetrieveProductionSummaryResponse,
+  AnalyticsRetrieveSKUImpactAnalysisParams,
+  AnalyticsRetrieveSKUImpactAnalysisResponse,
+  AnalyticsRetrieveWeeklySummaryParams,
+  AnalyticsRetrieveWeeklySummaryResponse,
+} from './resources/analytics/analytics';
 import { V2021, V2021GetInventoryParams, V2021GetInventoryResponse } from './resources/v2021/v2021';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -714,9 +726,11 @@ export class DimonaUsaAPI {
 
   v2021: API.V2021 = new API.V2021(this);
   v3: API.V3 = new API.V3(this);
+  analytics: API.Analytics = new API.Analytics(this);
 }
 DimonaUsaAPI.V2021 = V2021;
 DimonaUsaAPI.V3 = V3;
+DimonaUsaAPI.Analytics = Analytics;
 export declare namespace DimonaUsaAPI {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -727,4 +741,17 @@ export declare namespace DimonaUsaAPI {
   };
 
   export { V3 as V3, type V3SubmitOrderParams as V3SubmitOrderParams };
+
+  export {
+    Analytics as Analytics,
+    type AnalyticsMetadata as AnalyticsMetadata,
+    type AnalyticsRetrieveDailyOperationsResponse as AnalyticsRetrieveDailyOperationsResponse,
+    type AnalyticsRetrieveProductionSummaryResponse as AnalyticsRetrieveProductionSummaryResponse,
+    type AnalyticsRetrieveSKUImpactAnalysisResponse as AnalyticsRetrieveSKUImpactAnalysisResponse,
+    type AnalyticsRetrieveWeeklySummaryResponse as AnalyticsRetrieveWeeklySummaryResponse,
+    type AnalyticsRetrieveDailyOperationsParams as AnalyticsRetrieveDailyOperationsParams,
+    type AnalyticsRetrieveProductionSummaryParams as AnalyticsRetrieveProductionSummaryParams,
+    type AnalyticsRetrieveSKUImpactAnalysisParams as AnalyticsRetrieveSKUImpactAnalysisParams,
+    type AnalyticsRetrieveWeeklySummaryParams as AnalyticsRetrieveWeeklySummaryParams,
+  };
 }

@@ -11,6 +11,16 @@ export {
   type AnalyticsRetrieveProductionSummaryParams,
   type AnalyticsRetrieveSKUImpactAnalysisParams,
   type AnalyticsRetrieveWeeklySummaryParams,
-} from './analytics/analytics';
-export { V2021, type V2021GetInventoryResponse, type V2021GetInventoryParams } from './v2021/v2021';
-export { V3, type V3SubmitOrderParams } from './v3';
+} from './analytics';
+export {
+  Lateness,
+  type LatenessRetrieveExecutiveSummaryResponse,
+  type LatenessRetrieveExecutiveSummaryParams,
+} from './lateness';
+export {
+  ProductionSnapshot,
+  type ProductionSnapshotRetrieveByCreationDateResponse,
+  type ProductionSnapshotRetrieveByShipDateResponse,
+  type ProductionSnapshotRetrieveByCreationDateParams,
+  type ProductionSnapshotRetrieveByShipDateParams,
+} from './production-snapshot';
