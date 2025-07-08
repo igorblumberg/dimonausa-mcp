@@ -54,3 +54,42 @@ Methods:
 Methods:
 
 - <code title="post /api/v3/orders">client.v3.<a href="./src/resources/v3.ts">submitOrder</a>({ ...params }) -> Order</code>
+
+# Analytics
+
+Types:
+
+- <code><a href="./src/resources/analytics/analytics.ts">AnalyticsMetadata</a></code>
+- <code><a href="./src/resources/analytics/analytics.ts">AnalyticsRetrieveDailyOperationsResponse</a></code>
+- <code><a href="./src/resources/analytics/analytics.ts">AnalyticsRetrieveProductionSummaryResponse</a></code>
+- <code><a href="./src/resources/analytics/analytics.ts">AnalyticsRetrieveSKUImpactAnalysisResponse</a></code>
+- <code><a href="./src/resources/analytics/analytics.ts">AnalyticsRetrieveWeeklySummaryResponse</a></code>
+
+Methods:
+
+- <code title="get /api/analytics/daily-operations">client.analytics.<a href="./src/resources/analytics/analytics.ts">retrieveDailyOperations</a>({ ...params }) -> AnalyticsRetrieveDailyOperationsResponse</code>
+- <code title="get /api/analytics/production-summary">client.analytics.<a href="./src/resources/analytics/analytics.ts">retrieveProductionSummary</a>({ ...params }) -> AnalyticsRetrieveProductionSummaryResponse</code>
+- <code title="get /api/analytics/sku-impact-analysis">client.analytics.<a href="./src/resources/analytics/analytics.ts">retrieveSKUImpactAnalysis</a>({ ...params }) -> AnalyticsRetrieveSKUImpactAnalysisResponse</code>
+- <code title="get /api/analytics/weekly-summary">client.analytics.<a href="./src/resources/analytics/analytics.ts">retrieveWeeklySummary</a>({ ...params }) -> AnalyticsRetrieveWeeklySummaryResponse</code>
+
+## ProductionSnapshot
+
+Types:
+
+- <code><a href="./src/resources/analytics/production-snapshot.ts">ProductionSnapshotRetrieveByCreationDateResponse</a></code>
+- <code><a href="./src/resources/analytics/production-snapshot.ts">ProductionSnapshotRetrieveByShipDateResponse</a></code>
+
+Methods:
+
+- <code title="get /api/analytics/production-snapshot/by-creation-date">client.analytics.productionSnapshot.<a href="./src/resources/analytics/production-snapshot.ts">retrieveByCreationDate</a>({ ...params }) -> ProductionSnapshotRetrieveByCreationDateResponse</code>
+- <code title="get /api/analytics/production-snapshot/by-ship-date">client.analytics.productionSnapshot.<a href="./src/resources/analytics/production-snapshot.ts">retrieveByShipDate</a>({ ...params }) -> ProductionSnapshotRetrieveByShipDateResponse</code>
+
+## Lateness
+
+Types:
+
+- <code><a href="./src/resources/analytics/lateness.ts">LatenessRetrieveExecutiveSummaryResponse</a></code>
+
+Methods:
+
+- <code title="get /api/analytics/lateness/executive-summary">client.analytics.lateness.<a href="./src/resources/analytics/lateness.ts">retrieveExecutiveSummary</a>({ ...params }) -> LatenessRetrieveExecutiveSummaryResponse</code>

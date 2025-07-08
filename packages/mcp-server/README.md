@@ -264,3 +264,124 @@ The following tools are available in this MCP server.
   Legacy version of the production order submission endpoint, maintained for backward compatibility with older Brazil-based integrations.
 
   **⚠️ Deprecation Notice**: This endpoint is deprecated. Please use `/api/v2021/orders` for new integrations.
+
+### Resource `analytics`:
+
+- `retrieve_daily_operations_analytics` (`read`): ## 📊 Daily Operations Snapshot
+
+  Track orders created, items produced, printed, and shipped by day.
+
+  ### 📈 Returns
+
+  - Daily breakdown of orders and production items created
+  - Items printed and packaged per day
+  - Orders shipped per day
+  - Production efficiency percentages
+  - Cumulative totals over time
+
+  ### 🔒 Permissions
+
+  - Users can view their own data
+  - Admin permission required to view other users' data
+
+  ### ⏱️ Performance
+
+  - Results cached for 15 minutes
+  - `cached_until` timestamp included in response
+
+- `retrieve_production_summary_analytics` (`read`): ## 📊 Overall Production Summary
+
+  High-level overview of current production status.
+
+  ### 📈 Returns
+
+  - Total active items and orders
+  - Breakdown by production status
+  - Urgency breakdown (overdue, due today, etc.)
+  - Average days metrics
+
+- `retrieve_sku_impact_analysis_analytics` (`read`): ## 📊 SKU Impact Analysis
+
+  Analyze which SKUs are causing the most production delays due to stockouts.
+
+  ### 📈 Returns
+
+  - SKU reference
+  - Total items ordered
+  - Out of stock items count
+  - Stockout rate percentage
+  - Sorted by impact (most problematic SKUs first)
+
+  ### 🔍 Filters
+
+  - Set minimum SKU volume to focus on high-volume items
+  - Limit results to top N SKUs
+
+  ### 💡 Use Cases
+
+  - Identify SKUs needing inventory optimization
+  - Focus purchasing on high-impact items
+  - Analyze stockout patterns
+
+- `retrieve_weekly_summary_analytics` (`read`): ## 📊 Weekly Summary
+
+  Aggregated weekly metrics for production operations.
+
+  ### 📈 Returns
+
+  - Week number and start date
+  - Total orders and items created per week
+  - Items printed, packaged, and shipped
+  - Weekly efficiency percentages
+
+### Resource `analytics.production_snapshot`:
+
+- `retrieve_by_creation_date_analytics_production_snapshot` (`read`): ## 📦 Production Snapshot by Creation Date
+
+  Current production status grouped by order creation dates.
+
+  ### 📈 Returns
+
+  - Items grouped by creation date
+  - Age categories (TODAY/YESTERDAY, THIS WEEK, THIS MONTH, etc.)
+  - Item counts by production status
+  - Days since creation and until ship date
+
+- `retrieve_by_ship_date_analytics_production_snapshot` (`read`): ## 📦 Production Snapshot by Ship Date
+
+  Current production status grouped by ship dates.
+
+  ### 📈 Returns
+
+  - Items grouped by ship date
+  - Urgency categories (OVERDUE, DUE TODAY, DUE TOMORROW, etc.)
+  - Item counts by production status
+  - Average days since creation
+
+  ### ⚠️ Notes
+
+  - Only includes active production orders
+  - Orders must have a ship_by date set
+
+### Resource `analytics.lateness`:
+
+- `retrieve_executive_summary_analytics_lateness` (`read`): ## 📊 Order Lateness Analysis - Executive Summary
+
+  Comprehensive analysis of order processing times and stockout impacts.
+
+  ### 📈 Returns
+
+  - Total orders and items analyzed
+  - In-stock vs out-of-stock item counts
+  - Stockout rate percentage
+  - Average processing times (adjusted for business hours)
+
+  ### 🔍 Filters
+
+  - Filter by specific order references, UUIDs, or IDs
+  - Set minimum SKU volume threshold
+
+  ### ⏰ Business Hours
+
+  - Analysis considers business hours: 8 AM - 10 PM, Monday-Friday
+  - Weekend orders adjusted to next business day
