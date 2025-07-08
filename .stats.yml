@@ -1,4 +1,4 @@
-configured_endpoints: 9
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/dimona%2Fdimona-usa-api-1a2b4772932cfecb11fa080ee040804a72ea973c7b42172e44b2266d7f872a74.yml
-openapi_spec_hash: ccd9e03f9e9329bc3eec88a5b0f476c9
-config_hash: 51e972052a610427c443112fe31330ef
+configured_endpoints: 16
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/dimona%2Fdimona-usa-api-491253cb740c27ed5d01985dc76f7814dcf4f6a51033b844dfcb3a1a2d477f49.yml
+openapi_spec_hash: d356f5e619a7a15f0bed6b7a2de85071
+config_hash: b6aa9b0663791ce65b83a29daba1445b

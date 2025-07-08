@@ -13,6 +13,13 @@ import retrieve_v2021_orders from './v2021/orders/retrieve-v2021-orders';
 import cancel_v2021_orders from './v2021/orders/cancel-v2021-orders';
 import retrieve_events_v2021_orders from './v2021/orders/retrieve-events-v2021-orders';
 import submit_order_v3 from './v3/submit-order-v3';
+import retrieve_daily_operations_analytics from './analytics/retrieve-daily-operations-analytics';
+import retrieve_production_summary_analytics from './analytics/retrieve-production-summary-analytics';
+import retrieve_sku_impact_analysis_analytics from './analytics/retrieve-sku-impact-analysis-analytics';
+import retrieve_weekly_summary_analytics from './analytics/retrieve-weekly-summary-analytics';
+import retrieve_by_creation_date_analytics_production_snapshot from './analytics/production-snapshot/retrieve-by-creation-date-analytics-production-snapshot';
+import retrieve_by_ship_date_analytics_production_snapshot from './analytics/production-snapshot/retrieve-by-ship-date-analytics-production-snapshot';
+import retrieve_executive_summary_analytics_lateness from './analytics/lateness/retrieve-executive-summary-analytics-lateness';
 
 export const endpoints: Endpoint[] = [];
 
@@ -29,6 +36,13 @@ addEndpoint(retrieve_v2021_orders);
 addEndpoint(cancel_v2021_orders);
 addEndpoint(retrieve_events_v2021_orders);
 addEndpoint(submit_order_v3);
+addEndpoint(retrieve_daily_operations_analytics);
+addEndpoint(retrieve_production_summary_analytics);
+addEndpoint(retrieve_sku_impact_analysis_analytics);
+addEndpoint(retrieve_weekly_summary_analytics);
+addEndpoint(retrieve_by_creation_date_analytics_production_snapshot);
+addEndpoint(retrieve_by_ship_date_analytics_production_snapshot);
+addEndpoint(retrieve_executive_summary_analytics_lateness);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';
@@ -54,9 +68,10 @@ export function query(filters: Filter[], endpoints: Endpoint[]): Endpoint[] {
   });
 
   // Check if any filters didn't match
-  if (unmatchedFilters.size > 0) {
+  const unmatched = Array.from(unmatchedFilters).filter((f) => f.type === 'tool' || f.type === 'resource');
+  if (unmatched.length > 0) {
     throw new Error(
-      `The following filters did not match any endpoints: ${[...unmatchedFilters]
+      `The following filters did not match any endpoints: ${unmatched
         .map((f) => `${f.type}=${f.value}`)
         .join(', ')}`,
     );
