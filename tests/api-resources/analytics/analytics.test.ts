@@ -28,6 +28,7 @@ describe('resource analytics', () => {
     const response = await client.analytics.retrieveDailyOperations({
       end_date: '2019-12-27',
       start_date: '2019-12-27',
+      facility_id: 0,
       user_id: 0,
     });
   });
@@ -48,7 +49,10 @@ describe('resource analytics', () => {
   test.skip('retrieveProductionSummary: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.analytics.retrieveProductionSummary({ user_id: 0 }, { path: '/_stainless_unknown_path' }),
+      client.analytics.retrieveProductionSummary(
+        { facility_id: 0, user_id: 0 },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(DimonaUsaAPI.NotFoundError);
   });
 
@@ -72,6 +76,7 @@ describe('resource analytics', () => {
     const response = await client.analytics.retrieveSKUImpactAnalysis({
       end_date: '2019-12-27',
       start_date: '2019-12-27',
+      facility_id: 0,
       limit: 1,
       min_sku_volume: 1,
       user_id: 0,
@@ -98,6 +103,7 @@ describe('resource analytics', () => {
     const response = await client.analytics.retrieveWeeklySummary({
       end_date: '2019-12-27',
       start_date: '2019-12-27',
+      facility_id: 0,
       user_id: 0,
     });
   });

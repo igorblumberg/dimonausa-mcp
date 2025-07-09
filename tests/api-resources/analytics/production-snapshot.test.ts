@@ -25,7 +25,7 @@ describe('resource productionSnapshot', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.analytics.productionSnapshot.retrieveByCreationDate(
-        { user_id: 0 },
+        { facility_id: 0, user_id: 0 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(DimonaUsaAPI.NotFoundError);
@@ -48,7 +48,7 @@ describe('resource productionSnapshot', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.analytics.productionSnapshot.retrieveByShipDate(
-        { user_id: 0 },
+        { facility_id: 0, user_id: 0 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(DimonaUsaAPI.NotFoundError);

@@ -31,6 +31,10 @@ export const tool: Tool = {
         description: 'Start date for analysis (YYYY-MM-DD)',
         format: 'date',
       },
+      facility_id: {
+        type: 'integer',
+        description: 'Optional Facility ID to filter by specific production facility',
+      },
       user_id: {
         type: 'integer',
         description: 'Optional User ID to analyze (requires admin permissions for other users)',

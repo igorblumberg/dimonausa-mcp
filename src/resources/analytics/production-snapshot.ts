@@ -152,12 +152,22 @@ export namespace ProductionSnapshotRetrieveByShipDateResponse {
 
 export interface ProductionSnapshotRetrieveByCreationDateParams {
   /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
+
+  /**
    * Optional User ID to analyze (requires admin permissions for other users)
    */
   user_id?: number;
 }
 
 export interface ProductionSnapshotRetrieveByShipDateParams {
+  /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
+
   /**
    * Optional User ID to analyze (requires admin permissions for other users)
    */
