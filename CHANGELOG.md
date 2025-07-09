@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0 (2025-07-09)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* **api:** update via SDK Studio ([5bdea5c](https://github.com/igorblumberg/dimonausa-mcp/commit/5bdea5c67fd10c213003e1bb94b3cf88dbcc138f))
+* **api:** update via SDK Studio ([96ff3a5](https://github.com/igorblumberg/dimonausa-mcp/commit/96ff3a564f20d4a99ea9ab9a904ecd4522c0af10))
+
 ## 1.1.0 (2025-07-08)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.0.0...v1.1.0)
