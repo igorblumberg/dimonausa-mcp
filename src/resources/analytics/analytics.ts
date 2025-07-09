@@ -16,6 +16,14 @@ import {
   ProductionSnapshotRetrieveByShipDateParams,
   ProductionSnapshotRetrieveByShipDateResponse,
 } from './production-snapshot';
+import * as ReportsAPI from './reports';
+import {
+  ReportCreateItemStatusReportParams,
+  ReportCreateItemStatusReportResponse,
+  ReportGetItemsSoldRankingParams,
+  ReportGetItemsSoldRankingResponse,
+  Reports,
+} from './reports';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
@@ -24,6 +32,7 @@ export class Analytics extends APIResource {
     this._client,
   );
   lateness: LatenessAPI.Lateness = new LatenessAPI.Lateness(this._client);
+  reports: ReportsAPI.Reports = new ReportsAPI.Reports(this._client);
 
   /**
    * ## 📊 Daily Operations Snapshot
@@ -47,6 +56,15 @@ export class Analytics extends APIResource {
    *
    * - Results cached for 15 minutes
    * - `cached_until` timestamp included in response
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.retrieveDailyOperations({
+   *     end_date: '2019-12-27',
+   *     start_date: '2019-12-27',
+   *   });
+   * ```
    */
   retrieveDailyOperations(
     query: AnalyticsRetrieveDailyOperationsParams,
@@ -66,6 +84,12 @@ export class Analytics extends APIResource {
    * - Breakdown by production status
    * - Urgency breakdown (overdue, due today, etc.)
    * - Average days metrics
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.retrieveProductionSummary();
+   * ```
    */
   retrieveProductionSummary(
     query: AnalyticsRetrieveProductionSummaryParams | null | undefined = {},
@@ -97,6 +121,15 @@ export class Analytics extends APIResource {
    * - Identify SKUs needing inventory optimization
    * - Focus purchasing on high-impact items
    * - Analyze stockout patterns
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.retrieveSKUImpactAnalysis({
+   *     end_date: '2019-12-27',
+   *     start_date: '2019-12-27',
+   *   });
+   * ```
    */
   retrieveSKUImpactAnalysis(
     query: AnalyticsRetrieveSKUImpactAnalysisParams,
@@ -116,6 +149,15 @@ export class Analytics extends APIResource {
    * - Total orders and items created per week
    * - Items printed, packaged, and shipped
    * - Weekly efficiency percentages
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.retrieveWeeklySummary({
+   *     end_date: '2019-12-27',
+   *     start_date: '2019-12-27',
+   *   });
+   * ```
    */
   retrieveWeeklySummary(
     query: AnalyticsRetrieveWeeklySummaryParams,
@@ -387,6 +429,7 @@ export interface AnalyticsRetrieveWeeklySummaryParams {
 
 Analytics.ProductionSnapshot = ProductionSnapshot;
 Analytics.Lateness = Lateness;
+Analytics.Reports = Reports;
 
 export declare namespace Analytics {
   export {
@@ -413,5 +456,13 @@ export declare namespace Analytics {
     Lateness as Lateness,
     type LatenessRetrieveExecutiveSummaryResponse as LatenessRetrieveExecutiveSummaryResponse,
     type LatenessRetrieveExecutiveSummaryParams as LatenessRetrieveExecutiveSummaryParams,
+  };
+
+  export {
+    Reports as Reports,
+    type ReportCreateItemStatusReportResponse as ReportCreateItemStatusReportResponse,
+    type ReportGetItemsSoldRankingResponse as ReportGetItemsSoldRankingResponse,
+    type ReportCreateItemStatusReportParams as ReportCreateItemStatusReportParams,
+    type ReportGetItemsSoldRankingParams as ReportGetItemsSoldRankingParams,
   };
 }
