@@ -93,3 +93,15 @@ Types:
 Methods:
 
 - <code title="get /api/analytics/lateness/executive-summary">client.analytics.lateness.<a href="./src/resources/analytics/lateness.ts">retrieveExecutiveSummary</a>({ ...params }) -> LatenessRetrieveExecutiveSummaryResponse</code>
+
+## Reports
+
+Types:
+
+- <code><a href="./src/resources/analytics/reports.ts">ReportCreateItemStatusReportResponse</a></code>
+- <code><a href="./src/resources/analytics/reports.ts">ReportGetItemsSoldRankingResponse</a></code>
+
+Methods:
+
+- <code title="post /api/analytics/reports/item-status">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">createItemStatusReport</a>({ ...params }) -> ReportCreateItemStatusReportResponse</code>
+- <code title="get /api/analytics/reports/items-sold-ranking">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">getItemsSoldRanking</a>({ ...params }) -> ReportGetItemsSoldRankingResponse</code>

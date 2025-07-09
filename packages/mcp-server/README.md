@@ -385,3 +385,52 @@ The following tools are available in this MCP server.
 
   - Analysis considers business hours: 8 AM - 10 PM, Monday-Friday
   - Weekend orders adjusted to next business day
+
+### Resource `analytics.reports`:
+
+- `create_item_status_report_analytics_reports` (`write`): ## 📊 Item Status Report
+
+  Get detailed status information for production items by order reference or UUID.
+
+  ### 📈 Returns
+
+  - Item label ID and current status
+  - Order details (ID, UUID, reference, status)
+  - Product information (name, color, size)
+  - Tracking information
+  - Timestamps (creation, ship by, shipped)
+  - Purchase order details for items waiting inventory
+
+  ### 🔒 Permissions
+
+  - Users can only view their own orders
+  - Admin permission required to view other users' orders
+
+  ### ⚠️ Notes
+
+  - At least one order reference or UUID must be provided
+  - Maximum 100 order references/UUIDs per request
+
+- `get_items_sold_ranking_analytics_reports` (`read`): ## 📊 Items Sold Ranking Report
+
+  Get ranking of items by quantity sold within a date range.
+
+  ### 📈 Returns
+
+  - SKU reference and product details
+  - Total quantity sold
+  - Number of unique orders
+  - Ranking by quantity
+  - Optional order summary statistics
+
+  ### 🔍 Filters
+
+  - Filter by facility
+  - Limit number of results
+  - Include detailed order summary
+
+  ### 💡 Use Cases
+
+  - Identify best-selling products
+  - Plan inventory based on sales volume
+  - Analyze product performance

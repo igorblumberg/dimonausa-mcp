@@ -27,6 +27,15 @@ export class Lateness extends APIResource {
    *
    * - Analysis considers business hours: 8 AM - 10 PM, Monday-Friday
    * - Weekend orders adjusted to next business day
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.lateness.retrieveExecutiveSummary({
+   *     end_date: '2019-12-27',
+   *     start_date: '2019-12-27',
+   *   });
+   * ```
    */
   retrieveExecutiveSummary(
     query: LatenessRetrieveExecutiveSummaryParams,

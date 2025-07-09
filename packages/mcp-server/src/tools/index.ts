@@ -20,6 +20,8 @@ import retrieve_weekly_summary_analytics from './analytics/retrieve-weekly-summa
 import retrieve_by_creation_date_analytics_production_snapshot from './analytics/production-snapshot/retrieve-by-creation-date-analytics-production-snapshot';
 import retrieve_by_ship_date_analytics_production_snapshot from './analytics/production-snapshot/retrieve-by-ship-date-analytics-production-snapshot';
 import retrieve_executive_summary_analytics_lateness from './analytics/lateness/retrieve-executive-summary-analytics-lateness';
+import create_item_status_report_analytics_reports from './analytics/reports/create-item-status-report-analytics-reports';
+import get_items_sold_ranking_analytics_reports from './analytics/reports/get-items-sold-ranking-analytics-reports';
 
 export const endpoints: Endpoint[] = [];
 
@@ -43,6 +45,8 @@ addEndpoint(retrieve_weekly_summary_analytics);
 addEndpoint(retrieve_by_creation_date_analytics_production_snapshot);
 addEndpoint(retrieve_by_ship_date_analytics_production_snapshot);
 addEndpoint(retrieve_executive_summary_analytics_lateness);
+addEndpoint(create_item_status_report_analytics_reports);
+addEndpoint(get_items_sold_ranking_analytics_reports);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';

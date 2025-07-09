@@ -17,6 +17,12 @@ export class ProductionSnapshot extends APIResource {
    * - Age categories (TODAY/YESTERDAY, THIS WEEK, THIS MONTH, etc.)
    * - Item counts by production status
    * - Days since creation and until ship date
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.productionSnapshot.retrieveByCreationDate();
+   * ```
    */
   retrieveByCreationDate(
     query: ProductionSnapshotRetrieveByCreationDateParams | null | undefined = {},
@@ -41,6 +47,12 @@ export class ProductionSnapshot extends APIResource {
    *
    * - Only includes active production orders
    * - Orders must have a ship_by date set
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.analytics.productionSnapshot.retrieveByShipDate();
+   * ```
    */
   retrieveByShipDate(
     query: ProductionSnapshotRetrieveByShipDateParams | null | undefined = {},
