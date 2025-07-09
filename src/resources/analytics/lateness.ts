@@ -86,6 +86,11 @@ export interface LatenessRetrieveExecutiveSummaryParams {
   start_date: string;
 
   /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
+
+  /**
    * Minimum SKU volume to include
    */
   min_sku_volume?: number;

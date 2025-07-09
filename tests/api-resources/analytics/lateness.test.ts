@@ -28,6 +28,7 @@ describe('resource lateness', () => {
     const response = await client.analytics.lateness.retrieveExecutiveSummary({
       end_date: '2019-12-27',
       start_date: '2019-12-27',
+      facility_id: 0,
       min_sku_volume: 1,
       order_ids: 'order_ids',
       order_references: 'order_references',

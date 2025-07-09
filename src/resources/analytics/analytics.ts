@@ -133,6 +133,11 @@ export interface AnalyticsMetadata {
 
   end_date?: string;
 
+  /**
+   * Facility ID filter applied
+   */
+  facility_id?: number | null;
+
   start_date?: string;
 
   user_id?: number | null;
@@ -304,12 +309,22 @@ export interface AnalyticsRetrieveDailyOperationsParams {
   start_date: string;
 
   /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
+
+  /**
    * Optional User ID to analyze (requires admin permissions for other users)
    */
   user_id?: number;
 }
 
 export interface AnalyticsRetrieveProductionSummaryParams {
+  /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
+
   /**
    * Optional User ID to analyze (requires admin permissions for other users)
    */
@@ -326,6 +341,11 @@ export interface AnalyticsRetrieveSKUImpactAnalysisParams {
    * Start date for analysis (YYYY-MM-DD)
    */
   start_date: string;
+
+  /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
 
   /**
    * Maximum number of SKUs to return
@@ -353,6 +373,11 @@ export interface AnalyticsRetrieveWeeklySummaryParams {
    * Start date for analysis (YYYY-MM-DD)
    */
   start_date: string;
+
+  /**
+   * Optional Facility ID to filter by specific production facility
+   */
+  facility_id?: number;
 
   /**
    * Optional User ID to analyze (requires admin permissions for other users)
