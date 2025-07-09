@@ -24,3 +24,10 @@ export {
   type ProductionSnapshotRetrieveByCreationDateParams,
   type ProductionSnapshotRetrieveByShipDateParams,
 } from './production-snapshot';
+export {
+  Reports,
+  type ReportCreateItemStatusReportResponse,
+  type ReportGetItemsSoldRankingResponse,
+  type ReportCreateItemStatusReportParams,
+  type ReportGetItemsSoldRankingParams,
+} from './reports';

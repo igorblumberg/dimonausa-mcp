@@ -21,6 +21,10 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      facility_id: {
+        type: 'integer',
+        description: 'Optional Facility ID to filter by specific production facility',
+      },
       user_id: {
         type: 'integer',
         description: 'Optional User ID to analyze (requires admin permissions for other users)',

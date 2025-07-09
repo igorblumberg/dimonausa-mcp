@@ -3,21 +3,21 @@
 import { asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
+import type { Metadata } from '../../';
 import DimonaUsaAPI from 'dimona-usa-api';
 
 export const metadata: Metadata = {
-  resource: 'analytics',
+  resource: 'analytics.reports',
   operation: 'read',
   tags: [],
   httpMethod: 'get',
-  httpPath: '/api/analytics/daily-operations',
+  httpPath: '/api/analytics/reports/items-sold-ranking',
 };
 
 export const tool: Tool = {
-  name: 'retrieve_daily_operations_analytics',
+  name: 'get_items_sold_ranking_analytics_reports',
   description:
-    "## 📊 Daily Operations Snapshot\n\nTrack orders created, items produced, printed, and shipped by day.\n\n### 📈 Returns\n- Daily breakdown of orders and production items created\n- Items printed and packaged per day\n- Orders shipped per day\n- Production efficiency percentages\n- Cumulative totals over time\n\n### 🔒 Permissions\n- Users can view their own data\n- Admin permission required to view other users' data\n\n### ⏱️ Performance\n- Results cached for 15 minutes\n- `cached_until` timestamp included in response\n",
+    '## 📊 Items Sold Ranking Report\n\nGet ranking of items by quantity sold within a date range.\n\n### 📈 Returns\n- SKU reference and product details\n- Total quantity sold\n- Number of unique orders\n- Ranking by quantity\n- Optional order summary statistics\n\n### 🔍 Filters\n- Filter by facility\n- Limit number of results\n- Include detailed order summary\n\n### 💡 Use Cases\n- Identify best-selling products\n- Plan inventory based on sales volume\n- Analyze product performance\n',
   inputSchema: {
     type: 'object',
     properties: {
@@ -35,6 +35,14 @@ export const tool: Tool = {
         type: 'integer',
         description: 'Optional Facility ID to filter by specific production facility',
       },
+      include_order_details: {
+        type: 'boolean',
+        description: 'Include order summary statistics',
+      },
+      limit: {
+        type: 'integer',
+        description: 'Maximum number of items to return',
+      },
       user_id: {
         type: 'integer',
         description: 'Optional User ID to analyze (requires admin permissions for other users)',
@@ -45,7 +53,7 @@ export const tool: Tool = {
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return asTextContentResult(await client.analytics.retrieveDailyOperations(body));
+  return asTextContentResult(await client.analytics.reports.getItemsSoldRanking(body));
 };
 
 export default { metadata, tool, handler };
