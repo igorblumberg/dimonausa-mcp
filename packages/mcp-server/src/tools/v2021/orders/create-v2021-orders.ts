@@ -1,5 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { maybeFilter } from 'dimona-usa-api-mcp/filtering';
 import { asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'create_v2021_orders',
   description:
-    '## 🧾 Submit a Production Order\n\nCreate a new DTG production order to be printed, packed, and shipped from one of our regional facilities.\n\nUse this endpoint to send print-ready artwork, shipping details, and item metadata. Orders are automatically validated, assigned to the best facility, and queued for fulfillment.\n\n### 🔧 Required Fields\n- `id`: Your unique order reference (used for idempotency)\n- `items`: List of products to print, each with a valid SKU and quantity\n- `print_files`: High-res artwork for each print location (PNG, 300 DPI, transparent)\n- `preview_files`: Customer-facing mockups\n- `address_to`: Shipping details for the end customer\n- `shipping`: Carrier and shipping priority\n\n### ⚠️ Best Practices\n1. Check inventory for each SKU before submitting\n2. Use unique order IDs to avoid duplicates\n3. Validate print files (300 DPI, correct format) to avoid quality issues\n4. Include customer contact for delivery updates and return handling\n',
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\n## 🧾 Submit a Production Order\n\nCreate a new DTG production order to be printed, packed, and shipped from one of our regional facilities.\n\nUse this endpoint to send print-ready artwork, shipping details, and item metadata. Orders are automatically validated, assigned to the best facility, and queued for fulfillment.\n\n### 🔧 Required Fields\n- `id`: Your unique order reference (used for idempotency)\n- `items`: List of products to print, each with a valid SKU and quantity\n- `print_files`: High-res artwork for each print location (PNG, 300 DPI, transparent)\n- `preview_files`: Customer-facing mockups\n- `address_to`: Shipping details for the end customer\n- `shipping`: Carrier and shipping priority\n\n### ⚠️ Best Practices\n1. Check inventory for each SKU before submitting\n2. Use unique order IDs to avoid duplicates\n3. Validate print files (300 DPI, correct format) to avoid quality issues\n4. Include customer contact for delivery updates and return handling\n\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/order',\n  $defs: {\n    order: {\n      type: 'object',\n      properties: {\n        id: {\n          type: 'string'\n        },\n        reference_id: {\n          type: 'string'\n        },\n        status: {\n          type: 'string'\n        }\n      },\n      required: []\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
@@ -62,6 +63,12 @@ export const tool: Tool = {
       xqc: {
         type: 'boolean',
         description: 'Enable extra quality control for high-value orders',
+      },
+      jq_filter: {
+        type: 'string',
+        title: 'jq Filter',
+        description:
+          'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
     $defs: {
@@ -189,7 +196,7 @@ export const tool: Tool = {
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return asTextContentResult(await client.v2021.orders.create(body));
+  return asTextContentResult(await maybeFilter(args, await client.v2021.orders.create(body)));
 };
 
 export default { metadata, tool, handler };
