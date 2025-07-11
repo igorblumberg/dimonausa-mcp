@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.3.0 (2025-07-11)
+
+Full Changelog: [v1.2.0...v1.3.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.2.0...v1.3.0)
+
+### Features
+
+* **mcp:** support filtering tool results by a jq expression ([5c4274e](https://github.com/igorblumberg/dimonausa-mcp/commit/5c4274ea309de3a1eee9d5c2bb3d8ca649e2e5fb))
+
+
+### Bug Fixes
+
+* **mcp:** relax input type for asTextContextResult ([3638473](https://github.com/igorblumberg/dimonausa-mcp/commit/3638473916680446c199cae81b1649cd4b6fdf51))
+
+
+### Chores
+
+* make some internal functions async ([1fb74b1](https://github.com/igorblumberg/dimonausa-mcp/commit/1fb74b1c6f834f2885b47378cf914011ad6ccc47))
+
 ## 1.2.0 (2025-07-09)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.1.0...v1.2.0)
