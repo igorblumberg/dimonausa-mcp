@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { maybeFilter } from 'dimona-usa-api-mcp/filtering';
-import { asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
+import { Metadata, asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import DimonaUsaAPI from 'dimona-usa-api';
 
 export const metadata: Metadata = {
