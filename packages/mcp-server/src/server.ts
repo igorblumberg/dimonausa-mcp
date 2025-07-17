@@ -28,11 +28,7 @@ export const server = new McpServer(
     name: 'dimona_usa_api_api',
     version: '1.2.0',
   },
-  {
-    capabilities: {
-      tools: {},
-    },
-  },
+  { capabilities: { tools: {} } },
 );
 
 /**
