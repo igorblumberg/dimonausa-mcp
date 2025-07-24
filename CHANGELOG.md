@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.3.0 (2025-07-24)
+
+Full Changelog: [v1.2.0...v1.3.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.2.0...v1.3.0)
+
+### Features
+
+* **mcp:** support filtering tool results by a jq expression ([5c4274e](https://github.com/igorblumberg/dimonausa-mcp/commit/5c4274ea309de3a1eee9d5c2bb3d8ca649e2e5fb))
+
+
+### Bug Fixes
+
+* **mcp:** include required section for top-level properties and support naming transformations ([2dd5c25](https://github.com/igorblumberg/dimonausa-mcp/commit/2dd5c251239ddcd01098420ba83cd3713c2cd58f))
+* **mcp:** relax input type for asTextContextResult ([3638473](https://github.com/igorblumberg/dimonausa-mcp/commit/3638473916680446c199cae81b1649cd4b6fdf51))
+* **mcp:** support jq filtering on cloudflare workers ([2ee1e2a](https://github.com/igorblumberg/dimonausa-mcp/commit/2ee1e2a756188fd5ecb032a88f62ee1d577c2ecf))
+
+
+### Chores
+
+* **internal:** codegen related update ([3689842](https://github.com/igorblumberg/dimonausa-mcp/commit/3689842c22a76d9a752cc4ef7cd039cbc8ea4035))
+* make some internal functions async ([1fb74b1](https://github.com/igorblumberg/dimonausa-mcp/commit/1fb74b1c6f834f2885b47378cf914011ad6ccc47))
+* **mcp:** formatting ([cc9dc44](https://github.com/igorblumberg/dimonausa-mcp/commit/cc9dc44814c59b2eb616379d9e5da9a89789ec92))
+* **mcp:** rework imports in tools ([318fd07](https://github.com/igorblumberg/dimonausa-mcp/commit/318fd07fc34e21cc4205dea4cfbd65234bfe0c87))
+* **ts:** reorder package.json imports ([e002424](https://github.com/igorblumberg/dimonausa-mcp/commit/e00242474b3d5d73cbe07d88f0d2d033dd1c2bd4))
+
 ## 1.2.0 (2025-07-09)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.1.0...v1.2.0)
