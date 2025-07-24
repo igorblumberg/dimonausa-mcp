@@ -188,6 +188,7 @@ export const tool: Tool = {
       },
     },
   },
+  annotations: {},
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {

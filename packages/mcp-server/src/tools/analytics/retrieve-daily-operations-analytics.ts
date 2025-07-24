@@ -48,6 +48,9 @@ export const tool: Tool = {
     },
     required: ['end_date', 'start_date'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
