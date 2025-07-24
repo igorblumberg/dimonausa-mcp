@@ -33,6 +33,9 @@ export const tool: Tool = {
     },
     required: ['sku-reference'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {

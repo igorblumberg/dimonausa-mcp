@@ -39,6 +39,7 @@ export const tool: Tool = {
     },
     required: ['order-uuid'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
