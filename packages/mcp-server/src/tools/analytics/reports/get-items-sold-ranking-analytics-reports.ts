@@ -62,9 +62,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
-  const body = args as any;
+  const { jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.analytics.reports.getItemsSoldRanking(body)),
+    await maybeFilter(jq_filter, await client.analytics.reports.getItemsSoldRanking(body)),
   );
 };
 

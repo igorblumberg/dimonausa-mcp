@@ -39,8 +39,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
-  const { 'sku-reference': sku_reference, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.v2021.stock.retrieve(sku_reference)));
+  const { 'sku-reference': sku_reference, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.v2021.stock.retrieve(sku_reference)));
 };
 
 export default { metadata, tool, handler };

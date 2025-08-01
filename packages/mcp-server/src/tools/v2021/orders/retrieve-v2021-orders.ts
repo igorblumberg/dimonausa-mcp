@@ -39,8 +39,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
-  const { 'order-uuid': order_uuid, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.v2021.orders.retrieve(order_uuid)));
+  const { 'order-uuid': order_uuid, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.v2021.orders.retrieve(order_uuid)));
 };
 
 export default { metadata, tool, handler };
