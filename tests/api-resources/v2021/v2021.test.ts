@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource v2021', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getInventory', async () => {
     const responsePromise = client.v2021.getInventory({});
     const rawResponse = await responsePromise.asResponse();

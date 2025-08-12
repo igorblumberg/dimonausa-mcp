@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource reports', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('createItemStatusReport', async () => {
     const responsePromise = client.analytics.reports.createItemStatusReport({});
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource reports', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getItemsSoldRanking: only required params', async () => {
     const responsePromise = client.analytics.reports.getItemsSoldRanking({
       end_date: '2019-12-27',
@@ -35,7 +35,7 @@ describe('resource reports', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getItemsSoldRanking: required and optional params', async () => {
     const response = await client.analytics.reports.getItemsSoldRanking({
       end_date: '2019-12-27',

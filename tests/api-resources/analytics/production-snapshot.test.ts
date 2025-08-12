@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource productionSnapshot', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveByCreationDate', async () => {
     const responsePromise = client.analytics.productionSnapshot.retrieveByCreationDate();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource productionSnapshot', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveByCreationDate: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -31,7 +31,7 @@ describe('resource productionSnapshot', () => {
     ).rejects.toThrow(DimonaUsaAPI.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveByShipDate', async () => {
     const responsePromise = client.analytics.productionSnapshot.retrieveByShipDate();
     const rawResponse = await responsePromise.asResponse();
@@ -43,7 +43,7 @@ describe('resource productionSnapshot', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveByShipDate: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
