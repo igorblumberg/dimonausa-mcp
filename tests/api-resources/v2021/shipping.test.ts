@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource shipping', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('calculateRates: only required params', async () => {
     const responsePromise = client.v2021.shipping.calculateRates({
       items: [{ quantity: 2, sku: 'GLD-5000-BLACK-S' }],
@@ -29,7 +29,7 @@ describe('resource shipping', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('calculateRates: required and optional params', async () => {
     const response = await client.v2021.shipping.calculateRates({
       items: [{ quantity: 2, sku: 'GLD-5000-BLACK-S' }],
