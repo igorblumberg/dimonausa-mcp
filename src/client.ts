@@ -731,9 +731,11 @@ export class DimonaUsaAPI {
   v3: API.V3 = new API.V3(this);
   analytics: API.Analytics = new API.Analytics(this);
 }
+
 DimonaUsaAPI.V2021 = V2021;
 DimonaUsaAPI.V3 = V3;
 DimonaUsaAPI.Analytics = Analytics;
+
 export declare namespace DimonaUsaAPI {
   export type RequestOptions = Opts.RequestOptions;
 
