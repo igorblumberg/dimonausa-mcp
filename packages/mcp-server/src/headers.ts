@@ -17,7 +17,7 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
   }
 
   const apiKey =
-    req.headers['x-dimona-usa-api-api-key'] instanceof Array ?
+    Array.isArray(req.headers['x-dimona-usa-api-api-key']) ?
       req.headers['x-dimona-usa-api-api-key'][0]
     : req.headers['x-dimona-usa-api-api-key'];
   return { apiKey };
