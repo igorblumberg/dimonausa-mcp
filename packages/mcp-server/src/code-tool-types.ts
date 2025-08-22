@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from 'dimona-usa-api/client';
+import { ClientOptions } from 'dimona-usa-api';
 
 export type WorkerInput = {
   opts: ClientOptions;
