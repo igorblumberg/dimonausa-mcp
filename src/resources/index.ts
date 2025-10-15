@@ -1,6 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
+  Analysis,
+  type AnalysisAnalyzeResponse,
+  type AnalysisListTypesResponse,
+  type AnalysisAnalyzeParams,
+} from './analysis';
+export {
   Analytics,
   type AnalyticsMetadata,
   type AnalyticsRetrieveDailyOperationsResponse,
