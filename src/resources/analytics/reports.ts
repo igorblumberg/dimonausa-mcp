@@ -153,8 +153,8 @@ export namespace ReportCreateItemStatusReportResponse {
 
 export interface ReportGetItemsSoldRankingResponse {
   data?:
-    | Array<ReportGetItemsSoldRankingResponse.UnionMember0>
-    | ReportGetItemsSoldRankingResponse.UnionMember1;
+    | Array<ReportGetItemsSoldRankingResponse.RankingArray>
+    | ReportGetItemsSoldRankingResponse.RankingWithSummary;
 
   metadata?: ReportGetItemsSoldRankingResponse.Metadata;
 
@@ -162,7 +162,7 @@ export interface ReportGetItemsSoldRankingResponse {
 }
 
 export namespace ReportGetItemsSoldRankingResponse {
-  export interface UnionMember0 {
+  export interface RankingArray {
     product_name?: string;
 
     quantity_rank?: number;
@@ -178,13 +178,13 @@ export namespace ReportGetItemsSoldRankingResponse {
     unique_orders?: number;
   }
 
-  export interface UnionMember1 {
-    order_summary?: UnionMember1.OrderSummary;
+  export interface RankingWithSummary {
+    order_summary?: RankingWithSummary.OrderSummary;
 
-    ranking?: Array<UnionMember1.Ranking>;
+    ranking?: Array<RankingWithSummary.Ranking>;
   }
 
-  export namespace UnionMember1 {
+  export namespace RankingWithSummary {
     export interface OrderSummary {
       total_items?: number;
 
