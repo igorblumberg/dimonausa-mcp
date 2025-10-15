@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "dimona-usa-api/*": ["dist/src/*"],
-      "dimona-usa-api": ["dist/src/index.ts"]
+      "dimona-usa-api/*": ["./dist/src/*"],
+      "dimona-usa-api": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
