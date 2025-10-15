@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "dimona-usa-api/*": ["src/*"],
-      "dimona-usa-api": ["src/index.ts"]
+      "dimona-usa-api/*": ["./src/*"],
+      "dimona-usa-api": ["./src/index.ts"]
     },
     "noEmit": true,
 
