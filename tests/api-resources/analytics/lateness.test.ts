@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource lateness', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveExecutiveSummary: only required params', async () => {
     const responsePromise = client.analytics.lateness.retrieveExecutiveSummary({
       end_date: '2019-12-27',
@@ -23,7 +23,7 @@ describe('resource lateness', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveExecutiveSummary: required and optional params', async () => {
     const response = await client.analytics.lateness.retrieveExecutiveSummary({
       end_date: '2019-12-27',

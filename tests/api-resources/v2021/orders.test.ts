@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource orders', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.v2021.orders.create({
       id: 'orderReference1234',
@@ -33,7 +33,7 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.v2021.orders.create({
       id: 'orderReference1234',
@@ -76,7 +76,7 @@ describe('resource orders', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.v2021.orders.retrieve('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
@@ -88,7 +88,7 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('cancel', async () => {
     const responsePromise = client.v2021.orders.cancel('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {});
     const rawResponse = await responsePromise.asResponse();
@@ -100,7 +100,7 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveEvents', async () => {
     const responsePromise = client.v2021.orders.retrieveEvents('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();

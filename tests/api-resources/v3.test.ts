@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource v3', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('submitOrder', async () => {
     const responsePromise = client.v3.submitOrder({});
     const rawResponse = await responsePromise.asResponse();

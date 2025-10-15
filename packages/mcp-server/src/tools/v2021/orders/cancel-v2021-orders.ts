@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
+import { Metadata, asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../../';
 import DimonaUsaAPI from 'dimona-usa-api';
 
 export const metadata: Metadata = {
@@ -32,7 +31,9 @@ export const tool: Tool = {
         },
       },
     },
+    required: ['order-uuid'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {

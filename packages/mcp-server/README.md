@@ -126,6 +126,45 @@ over time, you can manually enable or disable certain capabilities:
 --resource=cards,accounts --operation=read --tag=kyc --no-tool=create_cards
 ```
 
+## Running remotely
+
+Launching the client with `--transport=http` launches the server as a remote server using Streamable HTTP transport. The `--port` setting can choose the port it will run on, and the `--socket` setting allows it to run on a Unix socket.
+
+Authorization can be provided via the `Authorization` header using the Bearer scheme.
+
+Additionally, authorization can be provided via the following headers:
+| Header | Equivalent client option | Security scheme |
+| -------------------------- | ------------------------ | --------------- |
+| `x-dimona-usa-api-api-key` | `apiKey` | bearerAuth |
+
+A configuration JSON for this server might look like this, assuming the server is hosted at `http://localhost:3000`:
+
+```json
+{
+  "mcpServers": {
+    "dimona_usa_api_api": {
+      "url": "http://localhost:3000",
+      "headers": {
+        "Authorization": "Bearer <auth value>"
+      }
+    }
+  }
+}
+```
+
+The command-line arguments for filtering tools and specifying clients can also be used as query parameters in the URL.
+For example, to exclude specific tools while including others, use the URL:
+
+```
+http://localhost:3000?resource=cards&resource=accounts&no_tool=create_cards
+```
+
+Or, to configure for the Cursor client, with a custom max tool name length, use the URL:
+
+```
+http://localhost:3000?client=cursor&capability=tool-name-length%3D40
+```
+
 ## Importing the tools and server individually
 
 ```js
@@ -434,3 +473,49 @@ The following tools are available in this MCP server.
   - Identify best-selling products
   - Plan inventory based on sales volume
   - Analyze product performance
+
+### Resource `analysis`:
+
+- `analyze_analysis` (`write`): ## 🔍 Analyze an Entity
+
+  Get detailed data and optionally AI-powered analysis for orders, production items, AZLs (labels), or purchase orders.
+
+  ### 🤖 Analysis Modes
+
+  - **raw_only=true** (default, recommended): Returns raw entity data for client-side AI analysis
+  - **raw_only=false**: Returns server-side AI analysis + raw data
+
+  When using raw_only=true, the response includes complete entity data that can be analyzed by your own AI model (e.g., Claude via MCP) for more flexible and context-aware insights.
+
+  This endpoint provides:
+
+  - Complete raw entity data with full event history
+  - Status summary and explanations (when raw_only=false)
+  - Identified issues and delays (when raw_only=false)
+  - Recommended next steps with priorities (when raw_only=false)
+  - Timeline analysis and urgency levels (when raw_only=false)
+
+  ### 📋 Supported Entity Types
+
+  - `order` - Analyze an order by ID, UUID, or reference
+  - `production_item` - Analyze a production item by ID
+  - `azl` - Analyze an AZL label by ID or UUID
+  - `purchase_order` - Analyze a purchase order by ID
+
+  ### 💡 Use Cases
+
+  - Troubleshoot delayed orders
+  - Identify bottlenecks in production
+  - Get recommendations for resolving issues
+  - Track entity lifecycle and status changes
+  - Feed raw data to AI assistants for contextual analysis
+
+- `list_types_analysis` (`read`): ## 📚 List Available Analysis Types
+
+  Returns all entity types that can be analyzed via the `/api/analysis` endpoint, along with descriptions of what each type supports.
+
+  Use this endpoint to:
+
+  - Discover which entities can be analyzed
+  - Understand how to identify each entity type
+  - Build dynamic UIs for analysis selection

@@ -8,7 +8,7 @@ const client = new DimonaUsaAPI({
 });
 
 describe('resource analytics', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveDailyOperations: only required params', async () => {
     const responsePromise = client.analytics.retrieveDailyOperations({
       end_date: '2019-12-27',
@@ -23,7 +23,7 @@ describe('resource analytics', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveDailyOperations: required and optional params', async () => {
     const response = await client.analytics.retrieveDailyOperations({
       end_date: '2019-12-27',
@@ -33,7 +33,7 @@ describe('resource analytics', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveProductionSummary', async () => {
     const responsePromise = client.analytics.retrieveProductionSummary();
     const rawResponse = await responsePromise.asResponse();
@@ -45,7 +45,7 @@ describe('resource analytics', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveProductionSummary: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -56,7 +56,7 @@ describe('resource analytics', () => {
     ).rejects.toThrow(DimonaUsaAPI.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveSKUImpactAnalysis: only required params', async () => {
     const responsePromise = client.analytics.retrieveSKUImpactAnalysis({
       end_date: '2019-12-27',
@@ -71,7 +71,7 @@ describe('resource analytics', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveSKUImpactAnalysis: required and optional params', async () => {
     const response = await client.analytics.retrieveSKUImpactAnalysis({
       end_date: '2019-12-27',
@@ -83,7 +83,7 @@ describe('resource analytics', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveWeeklySummary: only required params', async () => {
     const responsePromise = client.analytics.retrieveWeeklySummary({
       end_date: '2019-12-27',
@@ -98,7 +98,7 @@ describe('resource analytics', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveWeeklySummary: required and optional params', async () => {
     const response = await client.analytics.retrieveWeeklySummary({
       end_date: '2019-12-27',

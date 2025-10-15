@@ -16,6 +16,12 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
+import {
+  Analysis,
+  AnalysisAnalyzeParams,
+  AnalysisAnalyzeResponse,
+  AnalysisListTypesResponse,
+} from './resources/analysis';
 import { V3, V3SubmitOrderParams } from './resources/v3';
 import {
   Analytics,
@@ -189,7 +195,7 @@ export class DimonaUsaAPI {
    * Create a new client instance re-using the same options given to the current client with optional overriding.
    */
   withOptions(options: Partial<ClientOptions>): this {
-    return new (this.constructor as any as new (props: ClientOptions) => typeof this)({
+    const client = new (this.constructor as any as new (props: ClientOptions) => typeof this)({
       ...this._options,
       baseURL: this.baseURL,
       maxRetries: this.maxRetries,
@@ -201,6 +207,7 @@ export class DimonaUsaAPI {
       apiKey: this.apiKey,
       ...options,
     });
+    return client;
   }
 
   /**
@@ -218,7 +225,7 @@ export class DimonaUsaAPI {
     return;
   }
 
-  protected authHeaders(opts: FinalRequestOptions): NullableHeaders | undefined {
+  protected async authHeaders(opts: FinalRequestOptions): Promise<NullableHeaders | undefined> {
     return buildHeaders([{ Authorization: `Bearer ${this.apiKey}` }]);
   }
 
@@ -350,7 +357,9 @@ export class DimonaUsaAPI {
 
     await this.prepareOptions(options);
 
-    const { req, url, timeout } = this.buildRequest(options, { retryCount: maxRetries - retriesRemaining });
+    const { req, url, timeout } = await this.buildRequest(options, {
+      retryCount: maxRetries - retriesRemaining,
+    });
 
     await this.prepareRequest(req, { url, options });
 
@@ -378,7 +387,7 @@ export class DimonaUsaAPI {
     const response = await this.fetchWithTimeout(url, req, timeout, controller).catch(castToError);
     const headersTime = Date.now();
 
-    if (response instanceof Error) {
+    if (response instanceof globalThis.Error) {
       const retryMessage = `retrying, ${retriesRemaining} attempts remaining`;
       if (options.signal?.aborted) {
         throw new Errors.APIUserAbortError();
@@ -428,7 +437,7 @@ export class DimonaUsaAPI {
     } with status ${response.status} in ${headersTime - startTime}ms`;
 
     if (!response.ok) {
-      const shouldRetry = this.shouldRetry(response);
+      const shouldRetry = await this.shouldRetry(response);
       if (retriesRemaining && shouldRetry) {
         const retryMessage = `retrying, ${retriesRemaining} attempts remaining`;
 
@@ -527,7 +536,7 @@ export class DimonaUsaAPI {
     }
   }
 
-  private shouldRetry(response: Response): boolean {
+  private async shouldRetry(response: Response): Promise<boolean> {
     // Note this is not a standard header.
     const shouldRetryHeader = response.headers.get('x-should-retry');
 
@@ -604,10 +613,10 @@ export class DimonaUsaAPI {
     return sleepSeconds * jitter * 1000;
   }
 
-  buildRequest(
+  async buildRequest(
     inputOptions: FinalRequestOptions,
     { retryCount = 0 }: { retryCount?: number } = {},
-  ): { req: FinalizedRequestInit; url: string; timeout: number } {
+  ): Promise<{ req: FinalizedRequestInit; url: string; timeout: number }> {
     const options = { ...inputOptions };
     const { method, path, query, defaultBaseURL } = options;
 
@@ -615,7 +624,7 @@ export class DimonaUsaAPI {
     if ('timeout' in options) validatePositiveInteger('timeout', options.timeout);
     options.timeout = options.timeout ?? this.timeout;
     const { bodyHeaders, body } = this.buildBody({ options });
-    const reqHeaders = this.buildHeaders({ options: inputOptions, method, bodyHeaders, retryCount });
+    const reqHeaders = await this.buildHeaders({ options: inputOptions, method, bodyHeaders, retryCount });
 
     const req: FinalizedRequestInit = {
       method,
@@ -631,7 +640,7 @@ export class DimonaUsaAPI {
     return { req, url, timeout: options.timeout };
   }
 
-  private buildHeaders({
+  private async buildHeaders({
     options,
     method,
     bodyHeaders,
@@ -641,7 +650,7 @@ export class DimonaUsaAPI {
     method: HTTPMethod;
     bodyHeaders: HeadersLike;
     retryCount: number;
-  }): Headers {
+  }): Promise<Headers> {
     let idempotencyHeaders: HeadersLike = {};
     if (this.idempotencyHeader && method !== 'get') {
       if (!options.idempotencyKey) options.idempotencyKey = this.defaultIdempotencyKey();
@@ -657,7 +666,7 @@ export class DimonaUsaAPI {
         ...(options.timeout ? { 'X-Stainless-Timeout': String(Math.trunc(options.timeout / 1000)) } : {}),
         ...getPlatformHeaders(),
       },
-      this.authHeaders(options),
+      await this.authHeaders(options),
       this._options.defaultHeaders,
       bodyHeaders,
       options.headers,
@@ -685,7 +694,7 @@ export class DimonaUsaAPI {
         // Preserve legacy string encoding behavior for now
         headers.values.has('content-type')) ||
       // `Blob` is superset of `File`
-      body instanceof Blob ||
+      ((globalThis as any).Blob && body instanceof (globalThis as any).Blob) ||
       // `FormData` -> `multipart/form-data`
       body instanceof FormData ||
       // `URLSearchParams` -> `application/x-www-form-urlencoded`
@@ -727,10 +736,14 @@ export class DimonaUsaAPI {
   v2021: API.V2021 = new API.V2021(this);
   v3: API.V3 = new API.V3(this);
   analytics: API.Analytics = new API.Analytics(this);
+  analysis: API.Analysis = new API.Analysis(this);
 }
+
 DimonaUsaAPI.V2021 = V2021;
 DimonaUsaAPI.V3 = V3;
 DimonaUsaAPI.Analytics = Analytics;
+DimonaUsaAPI.Analysis = Analysis;
+
 export declare namespace DimonaUsaAPI {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -753,5 +766,12 @@ export declare namespace DimonaUsaAPI {
     type AnalyticsRetrieveProductionSummaryParams as AnalyticsRetrieveProductionSummaryParams,
     type AnalyticsRetrieveSKUImpactAnalysisParams as AnalyticsRetrieveSKUImpactAnalysisParams,
     type AnalyticsRetrieveWeeklySummaryParams as AnalyticsRetrieveWeeklySummaryParams,
+  };
+
+  export {
+    Analysis as Analysis,
+    type AnalysisAnalyzeResponse as AnalysisAnalyzeResponse,
+    type AnalysisListTypesResponse as AnalysisListTypesResponse,
+    type AnalysisAnalyzeParams as AnalysisAnalyzeParams,
   };
 }
