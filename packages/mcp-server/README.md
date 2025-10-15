@@ -473,3 +473,49 @@ The following tools are available in this MCP server.
   - Identify best-selling products
   - Plan inventory based on sales volume
   - Analyze product performance
+
+### Resource `analysis`:
+
+- `analyze_analysis` (`write`): ## 🔍 Analyze an Entity
+
+  Get detailed data and optionally AI-powered analysis for orders, production items, AZLs (labels), or purchase orders.
+
+  ### 🤖 Analysis Modes
+
+  - **raw_only=true** (default, recommended): Returns raw entity data for client-side AI analysis
+  - **raw_only=false**: Returns server-side AI analysis + raw data
+
+  When using raw_only=true, the response includes complete entity data that can be analyzed by your own AI model (e.g., Claude via MCP) for more flexible and context-aware insights.
+
+  This endpoint provides:
+
+  - Complete raw entity data with full event history
+  - Status summary and explanations (when raw_only=false)
+  - Identified issues and delays (when raw_only=false)
+  - Recommended next steps with priorities (when raw_only=false)
+  - Timeline analysis and urgency levels (when raw_only=false)
+
+  ### 📋 Supported Entity Types
+
+  - `order` - Analyze an order by ID, UUID, or reference
+  - `production_item` - Analyze a production item by ID
+  - `azl` - Analyze an AZL label by ID or UUID
+  - `purchase_order` - Analyze a purchase order by ID
+
+  ### 💡 Use Cases
+
+  - Troubleshoot delayed orders
+  - Identify bottlenecks in production
+  - Get recommendations for resolving issues
+  - Track entity lifecycle and status changes
+  - Feed raw data to AI assistants for contextual analysis
+
+- `list_types_analysis` (`read`): ## 📚 List Available Analysis Types
+
+  Returns all entity types that can be analyzed via the `/api/analysis` endpoint, along with descriptions of what each type supports.
+
+  Use this endpoint to:
+
+  - Discover which entities can be analyzed
+  - Understand how to identify each entity type
+  - Build dynamic UIs for analysis selection

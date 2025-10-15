@@ -105,3 +105,15 @@ Methods:
 
 - <code title="post /api/analytics/reports/item-status">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">createItemStatusReport</a>({ ...params }) -> ReportCreateItemStatusReportResponse</code>
 - <code title="get /api/analytics/reports/items-sold-ranking">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">getItemsSoldRanking</a>({ ...params }) -> ReportGetItemsSoldRankingResponse</code>
+
+# Analysis
+
+Types:
+
+- <code><a href="./src/resources/analysis.ts">AnalysisAnalyzeResponse</a></code>
+- <code><a href="./src/resources/analysis.ts">AnalysisListTypesResponse</a></code>
+
+Methods:
+
+- <code title="post /api/analysis">client.analysis.<a href="./src/resources/analysis.ts">analyze</a>({ ...params }) -> AnalysisAnalyzeResponse</code>
+- <code title="get /api/analysis/types">client.analysis.<a href="./src/resources/analysis.ts">listTypes</a>() -> AnalysisListTypesResponse</code>

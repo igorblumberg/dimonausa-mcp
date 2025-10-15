@@ -16,6 +16,12 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
+import {
+  Analysis,
+  AnalysisAnalyzeParams,
+  AnalysisAnalyzeResponse,
+  AnalysisListTypesResponse,
+} from './resources/analysis';
 import { V3, V3SubmitOrderParams } from './resources/v3';
 import {
   Analytics,
@@ -730,11 +736,13 @@ export class DimonaUsaAPI {
   v2021: API.V2021 = new API.V2021(this);
   v3: API.V3 = new API.V3(this);
   analytics: API.Analytics = new API.Analytics(this);
+  analysis: API.Analysis = new API.Analysis(this);
 }
 
 DimonaUsaAPI.V2021 = V2021;
 DimonaUsaAPI.V3 = V3;
 DimonaUsaAPI.Analytics = Analytics;
+DimonaUsaAPI.Analysis = Analysis;
 
 export declare namespace DimonaUsaAPI {
   export type RequestOptions = Opts.RequestOptions;
@@ -758,5 +766,12 @@ export declare namespace DimonaUsaAPI {
     type AnalyticsRetrieveProductionSummaryParams as AnalyticsRetrieveProductionSummaryParams,
     type AnalyticsRetrieveSKUImpactAnalysisParams as AnalyticsRetrieveSKUImpactAnalysisParams,
     type AnalyticsRetrieveWeeklySummaryParams as AnalyticsRetrieveWeeklySummaryParams,
+  };
+
+  export {
+    Analysis as Analysis,
+    type AnalysisAnalyzeResponse as AnalysisAnalyzeResponse,
+    type AnalysisListTypesResponse as AnalysisListTypesResponse,
+    type AnalysisAnalyzeParams as AnalysisAnalyzeParams,
   };
 }
