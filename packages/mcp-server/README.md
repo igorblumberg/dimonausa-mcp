@@ -25,7 +25,7 @@ For clients with a configuration JSON, it might look something like this:
   "mcpServers": {
     "dimona_usa_api_api": {
       "command": "npx",
-      "args": ["-y", "dimona-usa-api-mcp", "--client=claude", "--tools=all"],
+      "args": ["-y", "dimona-usa-api-mcp", "--client=claude", "--tools=dynamic"],
       "env": {
         "DIMONA_USA_API_API_KEY": "My API Key"
       }
@@ -449,6 +449,28 @@ The following tools are available in this MCP server.
 
   - At least one order reference or UUID must be provided
   - Maximum 100 order references/UUIDs per request
+
+- `create_orders_per_customer_analytics_reports` (`write`): ## 📊 Orders Per Customer Report
+
+  Get detailed order information grouped by customer for analytics and reporting purposes.
+
+  ### 📈 Returns
+
+  - Total customers and total orders
+  - Customer details with email and name
+  - Order list per customer with status and tracking
+  - Facility information for each order
+
+  ### 🔒 Permissions
+
+  - Users can only view their own orders
+  - Admin permission required to view other users' orders
+
+  ### ⚠️ Notes
+
+  - User IDs array is required (min: 1, max: 100)
+  - Date range is required (date_to must be >= date_from)
+  - Facility ID filter is optional
 
 - `get_items_sold_ranking_analytics_reports` (`read`): ## 📊 Items Sold Ranking Report
 

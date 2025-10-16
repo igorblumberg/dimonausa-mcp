@@ -20,6 +20,8 @@ import * as ReportsAPI from './reports';
 import {
   ReportCreateItemStatusReportParams,
   ReportCreateItemStatusReportResponse,
+  ReportCreateOrdersPerCustomerParams,
+  ReportCreateOrdersPerCustomerResponse,
   ReportGetItemsSoldRankingParams,
   ReportGetItemsSoldRankingResponse,
   Reports,
@@ -461,8 +463,10 @@ export declare namespace Analytics {
   export {
     Reports as Reports,
     type ReportCreateItemStatusReportResponse as ReportCreateItemStatusReportResponse,
+    type ReportCreateOrdersPerCustomerResponse as ReportCreateOrdersPerCustomerResponse,
     type ReportGetItemsSoldRankingResponse as ReportGetItemsSoldRankingResponse,
     type ReportCreateItemStatusReportParams as ReportCreateItemStatusReportParams,
+    type ReportCreateOrdersPerCustomerParams as ReportCreateOrdersPerCustomerParams,
     type ReportGetItemsSoldRankingParams as ReportGetItemsSoldRankingParams,
   };
 }

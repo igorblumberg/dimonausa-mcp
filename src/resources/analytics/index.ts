@@ -27,7 +27,9 @@ export {
 export {
   Reports,
   type ReportCreateItemStatusReportResponse,
+  type ReportCreateOrdersPerCustomerResponse,
   type ReportGetItemsSoldRankingResponse,
   type ReportCreateItemStatusReportParams,
+  type ReportCreateOrdersPerCustomerParams,
   type ReportGetItemsSoldRankingParams,
 } from './reports';
