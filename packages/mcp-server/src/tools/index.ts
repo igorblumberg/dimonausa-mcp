@@ -21,6 +21,7 @@ import retrieve_by_creation_date_analytics_production_snapshot from './analytics
 import retrieve_by_ship_date_analytics_production_snapshot from './analytics/production-snapshot/retrieve-by-ship-date-analytics-production-snapshot';
 import retrieve_executive_summary_analytics_lateness from './analytics/lateness/retrieve-executive-summary-analytics-lateness';
 import create_item_status_report_analytics_reports from './analytics/reports/create-item-status-report-analytics-reports';
+import create_orders_per_customer_analytics_reports from './analytics/reports/create-orders-per-customer-analytics-reports';
 import get_items_sold_ranking_analytics_reports from './analytics/reports/get-items-sold-ranking-analytics-reports';
 import analyze_analysis from './analysis/analyze-analysis';
 import list_types_analysis from './analysis/list-types-analysis';
@@ -48,6 +49,7 @@ addEndpoint(retrieve_by_creation_date_analytics_production_snapshot);
 addEndpoint(retrieve_by_ship_date_analytics_production_snapshot);
 addEndpoint(retrieve_executive_summary_analytics_lateness);
 addEndpoint(create_item_status_report_analytics_reports);
+addEndpoint(create_orders_per_customer_analytics_reports);
 addEndpoint(get_items_sold_ranking_analytics_reports);
 addEndpoint(analyze_analysis);
 addEndpoint(list_types_analysis);
