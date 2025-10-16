@@ -541,3 +541,31 @@ The following tools are available in this MCP server.
   - Discover which entities can be analyzed
   - Understand how to identify each entity type
   - Build dynamic UIs for analysis selection
+
+### Resource `context`:
+
+- `retrieve_context` (`read`): ## 🧠 System Context & Documentation
+
+  Returns comprehensive documentation about the Dimona USA Production Control System, including:
+
+  - Business overview and core capabilities
+  - Entity definitions (Orders, ProductionItems, AZLs, etc.)
+  - Status workflows and transitions
+  - Business rules and priorities
+  - Terminology and glossary
+
+  **🤖 For AI Assistants**: This endpoint should be called first to understand the system domain before making other API calls. It provides essential context for interpreting data and making informed recommendations.
+
+  ### 📋 Key Information Provided
+
+  - **Core Entities**: Detailed descriptions of Orders, ProductionItems, AZLs, SKUs, PurchaseOrders, etc.
+  - **Workflows**: Complete lifecycle documentation (order → shipment, inventory replenishment, etc.)
+  - **Status Definitions**: All possible statuses with descriptions, next steps, and timing expectations
+  - **Business Rules**: Priority rules, inventory rules, timing expectations
+  - **Terminology**: Industry-specific terms and acronyms
+  - **Facilities**: Information about production locations and capabilities
+
+  ### ⚡ Performance
+
+  - Response is cached and optimized for frequent access
+  - No authentication required (public documentation)

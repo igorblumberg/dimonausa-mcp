@@ -119,3 +119,13 @@ Methods:
 
 - <code title="post /api/analysis">client.analysis.<a href="./src/resources/analysis.ts">analyze</a>({ ...params }) -> AnalysisAnalyzeResponse</code>
 - <code title="get /api/analysis/types">client.analysis.<a href="./src/resources/analysis.ts">listTypes</a>() -> AnalysisListTypesResponse</code>
+
+# Context
+
+Types:
+
+- <code><a href="./src/resources/context.ts">ContextRetrieveResponse</a></code>
+
+Methods:
+
+- <code title="get /api/context">client.context.<a href="./src/resources/context.ts">retrieve</a>() -> ContextRetrieveResponse</code>
