@@ -25,6 +25,7 @@ import create_orders_per_customer_analytics_reports from './analytics/reports/cr
 import get_items_sold_ranking_analytics_reports from './analytics/reports/get-items-sold-ranking-analytics-reports';
 import analyze_analysis from './analysis/analyze-analysis';
 import list_types_analysis from './analysis/list-types-analysis';
+import retrieve_context from './context/retrieve-context';
 
 export const endpoints: Endpoint[] = [];
 
@@ -53,6 +54,7 @@ addEndpoint(create_orders_per_customer_analytics_reports);
 addEndpoint(get_items_sold_ranking_analytics_reports);
 addEndpoint(analyze_analysis);
 addEndpoint(list_types_analysis);
+addEndpoint(retrieve_context);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';
