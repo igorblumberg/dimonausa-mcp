@@ -22,6 +22,7 @@ import {
   AnalysisAnalyzeResponse,
   AnalysisListTypesResponse,
 } from './resources/analysis';
+import { Context, ContextRetrieveResponse } from './resources/context';
 import { V3, V3SubmitOrderParams } from './resources/v3';
 import {
   Analytics,
@@ -737,12 +738,14 @@ export class DimonaUsaAPI {
   v3: API.V3 = new API.V3(this);
   analytics: API.Analytics = new API.Analytics(this);
   analysis: API.Analysis = new API.Analysis(this);
+  context: API.Context = new API.Context(this);
 }
 
 DimonaUsaAPI.V2021 = V2021;
 DimonaUsaAPI.V3 = V3;
 DimonaUsaAPI.Analytics = Analytics;
 DimonaUsaAPI.Analysis = Analysis;
+DimonaUsaAPI.Context = Context;
 
 export declare namespace DimonaUsaAPI {
   export type RequestOptions = Opts.RequestOptions;
@@ -774,4 +777,6 @@ export declare namespace DimonaUsaAPI {
     type AnalysisListTypesResponse as AnalysisListTypesResponse,
     type AnalysisAnalyzeParams as AnalysisAnalyzeParams,
   };
+
+  export { Context as Context, type ContextRetrieveResponse as ContextRetrieveResponse };
 }
