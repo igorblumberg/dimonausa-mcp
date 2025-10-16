@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0 (2025-10-16)
+
+Full Changelog: [v1.4.0...v1.5.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* **api:** manual updates ([4ffb63d](https://github.com/igorblumberg/dimonausa-mcp/commit/4ffb63dd0b9248470a46cea50bf13754b52e4786))
+
 ## 1.4.0 (2025-10-16)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.3.0...v1.4.0)
