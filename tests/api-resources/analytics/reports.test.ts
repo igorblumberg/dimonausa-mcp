@@ -21,6 +21,32 @@ describe('resource reports', () => {
   });
 
   // Prism tests are disabled
+  test.skip('createOrdersPerCustomer: only required params', async () => {
+    const responsePromise = client.analytics.reports.createOrdersPerCustomer({
+      date_from: '2024-01-01',
+      date_to: '2024-12-31',
+      user_ids: [1, 2, 3],
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('createOrdersPerCustomer: required and optional params', async () => {
+    const response = await client.analytics.reports.createOrdersPerCustomer({
+      date_from: '2024-01-01',
+      date_to: '2024-12-31',
+      user_ids: [1, 2, 3],
+      facility_id: 1,
+    });
+  });
+
+  // Prism tests are disabled
   test.skip('getItemsSoldRanking: only required params', async () => {
     const responsePromise = client.analytics.reports.getItemsSoldRanking({
       end_date: '2019-12-27',

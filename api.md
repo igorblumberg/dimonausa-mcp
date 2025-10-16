@@ -99,11 +99,13 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/analytics/reports.ts">ReportCreateItemStatusReportResponse</a></code>
+- <code><a href="./src/resources/analytics/reports.ts">ReportCreateOrdersPerCustomerResponse</a></code>
 - <code><a href="./src/resources/analytics/reports.ts">ReportGetItemsSoldRankingResponse</a></code>
 
 Methods:
 
 - <code title="post /api/analytics/reports/item-status">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">createItemStatusReport</a>({ ...params }) -> ReportCreateItemStatusReportResponse</code>
+- <code title="post /api/analytics/reports/orders-per-customer">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">createOrdersPerCustomer</a>({ ...params }) -> ReportCreateOrdersPerCustomerResponse</code>
 - <code title="get /api/analytics/reports/items-sold-ranking">client.analytics.reports.<a href="./src/resources/analytics/reports.ts">getItemsSoldRanking</a>({ ...params }) -> ReportGetItemsSoldRankingResponse</code>
 
 # Analysis
