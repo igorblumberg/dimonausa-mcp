@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.1 (2025-10-31)
+
+Full Changelog: [v1.5.0...v1.5.1](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.5.0...v1.5.1)
+
+### Bug Fixes
+
+* **mcpb:** pin @anthropic-ai/mcpb version ([d660050](https://github.com/igorblumberg/dimonausa-mcp/commit/d6600504ad383ca8235c080ca23ae0e5ac9139d1))
+
 ## 1.5.0 (2025-10-16)
 
 Full Changelog: [v1.4.0...v1.5.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.4.0...v1.5.0)
