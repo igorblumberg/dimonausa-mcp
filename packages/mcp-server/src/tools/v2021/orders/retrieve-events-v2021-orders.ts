@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { maybeFilter } from 'dimona-usa-api-mcp/filtering';
-import { Metadata, asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
+import { isJqError, maybeFilter } from 'dimona-usa-api-mcp/filtering';
+import { Metadata, asErrorResult, asTextContentResult } from 'dimona-usa-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import DimonaUsaAPI from 'dimona-usa-api';
@@ -40,9 +40,16 @@ export const tool: Tool = {
 
 export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown> | undefined) => {
   const { 'order-uuid': order_uuid, jq_filter, ...body } = args as any;
-  return asTextContentResult(
-    await maybeFilter(jq_filter, await client.v2021.orders.retrieveEvents(order_uuid)),
-  );
+  try {
+    return asTextContentResult(
+      await maybeFilter(jq_filter, await client.v2021.orders.retrieveEvents(order_uuid)),
+    );
+  } catch (error) {
+    if (isJqError(error)) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
