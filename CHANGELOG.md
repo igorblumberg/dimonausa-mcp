@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.6.0 (2025-11-13)
+
+Full Changelog: [v1.5.1...v1.6.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.5.1...v1.6.0)
+
+### Features
+
+* **mcp:** enable optional code execution tool on http mcp servers ([71cfeb8](https://github.com/igorblumberg/dimonausa-mcp/commit/71cfeb8f50d69ea55a7716951fe4c88b07713a59))
+
+
+### Bug Fixes
+
+* **mcp:** return tool execution error on jq failure ([4c91c85](https://github.com/igorblumberg/dimonausa-mcp/commit/4c91c8585a0751be199d0353f9f7fb66b50dc0b1))
+
+
+### Chores
+
+* **internal:** codegen related update ([33b765e](https://github.com/igorblumberg/dimonausa-mcp/commit/33b765e958cc07c08a94102c24d3cd0e41bda413))
+* **internal:** codegen related update ([8930cbf](https://github.com/igorblumberg/dimonausa-mcp/commit/8930cbf69e622fa2ad1f1cada1b4b90293d003a4))
+* **internal:** grammar fix (it's -&gt; its) ([4033a81](https://github.com/igorblumberg/dimonausa-mcp/commit/4033a8126beb46af33d70ac73a39377569f89208))
+* mcp code tool explicit error message when missing a run function ([63dfc53](https://github.com/igorblumberg/dimonausa-mcp/commit/63dfc53ba6fb9f05e98408b9eda9ad9c60e95422))
+* **mcp:** add friendlier MCP code tool errors on incorrect method invocations ([3e41b93](https://github.com/igorblumberg/dimonausa-mcp/commit/3e41b93d9b90367d994bb0f3153a886f70e532d0))
+* **mcp:** add line numbers to code tool errors ([77a3cc8](https://github.com/igorblumberg/dimonausa-mcp/commit/77a3cc8e7458f7047d6d0800a6174e611c601056))
+* **mcp:** clarify http auth error ([075480b](https://github.com/igorblumberg/dimonausa-mcp/commit/075480b422bff4f1e528021f7d51aa2fd1525c7f))
+* use structured error when code execution tool errors ([45e4362](https://github.com/igorblumberg/dimonausa-mcp/commit/45e4362e29e3605fbe8f8c67ce9b17829269ad12))
+
+
+### Documentation
+
+* **mcp:** add a README button for one-click add to Cursor ([b1f31d4](https://github.com/igorblumberg/dimonausa-mcp/commit/b1f31d43e63d7ca9f5817d421b006836bd366c69))
+* **mcp:** add a README link to add server to VS Code or Claude Code ([f4bc22e](https://github.com/igorblumberg/dimonausa-mcp/commit/f4bc22ee418ec107709f09665c6cdeeb110daf0d))
+
 ## 1.5.1 (2025-10-31)
 
 Full Changelog: [v1.5.0...v1.5.1](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.5.0...v1.5.1)
