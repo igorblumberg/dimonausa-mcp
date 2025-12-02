@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.7.0 (2025-12-02)
+
+Full Changelog: [v1.6.0...v1.7.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.6.0...v1.7.0)
+
+### Features
+
+* **mcp:** add detail field to docs search tool ([732d346](https://github.com/igorblumberg/dimonausa-mcp/commit/732d346f462745d107636f5631c7294e59e5dd7f))
+
+
+### Bug Fixes
+
+* **mcp:** return tool execution error on api error ([1295a46](https://github.com/igorblumberg/dimonausa-mcp/commit/1295a4669a0abbdbf9efe4ef2aaa1cd32eecb0cb))
+
+
+### Chores
+
+* **client:** fix logger property type ([908fde4](https://github.com/igorblumberg/dimonausa-mcp/commit/908fde44aaeaf7aab51acf145072b765b0a43f36))
+* **mcp:** upgrade jq-web ([96a81e2](https://github.com/igorblumberg/dimonausa-mcp/commit/96a81e2654c6d465441580188d6ec9355c87c37d))
+
 ## 1.6.0 (2025-11-13)
 
 Full Changelog: [v1.5.1...v1.6.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.5.1...v1.6.0)
