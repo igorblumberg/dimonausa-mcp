@@ -68,7 +68,7 @@ export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown
       await maybeFilter(jq_filter, await client.analytics.retrieveSKUImpactAnalysis(body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof DimonaUsaAPI.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
