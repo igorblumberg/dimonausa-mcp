@@ -79,7 +79,7 @@ export const handler = async (client: DimonaUsaAPI, args: Record<string, unknown
       await maybeFilter(jq_filter, await client.v2021.shipping.calculateRates(body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof DimonaUsaAPI.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
