@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.8.0 (2025-12-06)
+
+Full Changelog: [v1.7.0...v1.8.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.7.0...v1.8.0)
+
+### Features
+
+* **mcp:** add typescript check to code execution tool ([1818fbb](https://github.com/igorblumberg/dimonausa-mcp/commit/1818fbb8f1aaeebc77fb59120ce6e902d40dd031))
+* **mcp:** handle code mode calls in the Stainless API ([59a9e4d](https://github.com/igorblumberg/dimonausa-mcp/commit/59a9e4daf9dca23a1733819c129a0fc41091d3c4))
+* **mcp:** return logs on code tool errors ([6778995](https://github.com/igorblumberg/dimonausa-mcp/commit/6778995eeeac9fe668164c7b500c1dd1cc2c4c4c))
+
+
+### Bug Fixes
+
+* **mcp:** return correct lines on typescript errors ([cf3d9d2](https://github.com/igorblumberg/dimonausa-mcp/commit/cf3d9d24d6668d888f12a48d5c6f840cd89d2541))
+
+
+### Chores
+
+* **internal:** upgrade eslint ([6be6950](https://github.com/igorblumberg/dimonausa-mcp/commit/6be69504c1036df915744a991298a52990091719))
+* use latest @modelcontextprotocol/sdk ([50e126b](https://github.com/igorblumberg/dimonausa-mcp/commit/50e126b4e4d08220af756ed72794a94246dc152a))
+
 ## 1.7.0 (2025-12-02)
 
 Full Changelog: [v1.6.0...v1.7.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.6.0...v1.7.0)
