@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.8.1 (2025-12-18)
+
+Full Changelog: [v1.8.0...v1.8.1](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.8.0...v1.8.1)
+
+### Bug Fixes
+
+* **mcp:** add client instantiation options to code tool ([6b5bbb9](https://github.com/igorblumberg/dimonausa-mcp/commit/6b5bbb9154d55558e392da6afe645e4804bb7a15))
+* **mcp:** correct code tool API endpoint ([3465a3b](https://github.com/igorblumberg/dimonausa-mcp/commit/3465a3b1466211c43151bd9eabb40dd1cf041496))
+* **mcp:** pass base url to code tool ([869563d](https://github.com/igorblumberg/dimonausa-mcp/commit/869563dcb5684c81efbc180b84fc2204ae635c48))
+
+
+### Chores
+
+* **internal:** codegen related update ([86c34d7](https://github.com/igorblumberg/dimonausa-mcp/commit/86c34d7e5d082d9049dac992762078e107f573c7))
+* **internal:** codegen related update ([a5a34b9](https://github.com/igorblumberg/dimonausa-mcp/commit/a5a34b9dfb46c628530ff36bf69b86fe059271f4))
+* **mcp:** update lockfile ([2759e56](https://github.com/igorblumberg/dimonausa-mcp/commit/2759e56e8e6e04573646898d62315c84a0723497))
+
 ## 1.8.0 (2025-12-06)
 
 Full Changelog: [v1.7.0...v1.8.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.7.0...v1.8.0)
