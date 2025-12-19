@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0 (2025-12-19)
+
+Full Changelog: [v1.8.1...v2.0.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.8.1...v2.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Chores
+
+* **mcp:** remove deprecated tool schemes ([9a0cebf](https://github.com/igorblumberg/dimonausa-mcp/commit/9a0cebfff7f4c3fe0b55a342dca2cf92effe58a2))
+
 ## 1.8.1 (2025-12-18)
 
 Full Changelog: [v1.8.0...v1.8.1](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.8.0...v1.8.1)
