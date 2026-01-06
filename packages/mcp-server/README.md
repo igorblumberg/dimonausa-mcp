@@ -54,7 +54,7 @@ If you use Claude Code, you can install the MCP server by running the command be
 environment variables in Claude Code's `.claude.json`, which can be found in your home directory.
 
 ```
-claude mcp add --transport stdio dimona_usa_api_api --env DIMONA_USA_API_API_KEY="Your DIMONA_USA_API_API_KEY here." -- npx -y dimona-usa-api-mcp
+claude mcp add dimona_usa_api_mcp_api --env DIMONA_USA_API_API_KEY="Your DIMONA_USA_API_API_KEY here." -- npx -y dimona-usa-api-mcp
 ```
 
 ## Code Mode
