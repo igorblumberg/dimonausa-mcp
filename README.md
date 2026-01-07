@@ -46,7 +46,15 @@ const order = await client.v2021.orders.create({
     region: 'FL',
     zip: '33004',
   },
-  items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }],
+  items: [
+    {
+      id: 'gB0NV05e',
+      preview_files: {},
+      print_files: {},
+      quantity: 1,
+      sku: 'BLC-3001-BLACK-L',
+    },
+  ],
   shipping: {},
 });
 
@@ -76,7 +84,15 @@ const params: DimonaUsaAPI.V2021.OrderCreateParams = {
     region: 'FL',
     zip: '33004',
   },
-  items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }],
+  items: [
+    {
+      id: 'gB0NV05e',
+      preview_files: {},
+      print_files: {},
+      quantity: 1,
+      sku: 'BLC-3001-BLACK-L',
+    },
+  ],
   shipping: {},
 };
 const order: DimonaUsaAPI.V2021.Order = await client.v2021.orders.create(params);
@@ -104,7 +120,15 @@ const order = await client.v2021.orders
       region: 'FL',
       zip: '33004',
     },
-    items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }],
+    items: [
+      {
+        id: 'gB0NV05e',
+        preview_files: {},
+        print_files: {},
+        quantity: 1,
+        sku: 'BLC-3001-BLACK-L',
+      },
+    ],
     shipping: {},
   })
   .catch(async (err) => {
@@ -147,7 +171,26 @@ const client = new DimonaUsaAPI({
 });
 
 // Or, configure per-request:
-await client.v2021.orders.create({ id: 'orderReference1234', address_to: { address1: '1983 Tigertail Blvd', city: 'Dania Beach', country: 'US', first_name: 'John', last_name: 'Doe', region: 'FL', zip: '33004' }, items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }], shipping: {} }, {
+await client.v2021.orders.create({
+  id: 'orderReference1234',
+  address_to: {
+  address1: '1983 Tigertail Blvd',
+  city: 'Dania Beach',
+  country: 'US',
+  first_name: 'John',
+  last_name: 'Doe',
+  region: 'FL',
+  zip: '33004',
+},
+  items: [{
+  id: 'gB0NV05e',
+  preview_files: {},
+  print_files: {},
+  quantity: 1,
+  sku: 'BLC-3001-BLACK-L',
+}],
+  shipping: {},
+}, {
   maxRetries: 5,
 });
 ```
@@ -164,7 +207,26 @@ const client = new DimonaUsaAPI({
 });
 
 // Override per-request:
-await client.v2021.orders.create({ id: 'orderReference1234', address_to: { address1: '1983 Tigertail Blvd', city: 'Dania Beach', country: 'US', first_name: 'John', last_name: 'Doe', region: 'FL', zip: '33004' }, items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }], shipping: {} }, {
+await client.v2021.orders.create({
+  id: 'orderReference1234',
+  address_to: {
+  address1: '1983 Tigertail Blvd',
+  city: 'Dania Beach',
+  country: 'US',
+  first_name: 'John',
+  last_name: 'Doe',
+  region: 'FL',
+  zip: '33004',
+},
+  items: [{
+  id: 'gB0NV05e',
+  preview_files: {},
+  print_files: {},
+  quantity: 1,
+  sku: 'BLC-3001-BLACK-L',
+}],
+  shipping: {},
+}, {
   timeout: 5 * 1000,
 });
 ```
@@ -199,7 +261,15 @@ const response = await client.v2021.orders
       region: 'FL',
       zip: '33004',
     },
-    items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }],
+    items: [
+      {
+        id: 'gB0NV05e',
+        preview_files: {},
+        print_files: {},
+        quantity: 1,
+        sku: 'BLC-3001-BLACK-L',
+      },
+    ],
     shipping: {},
   })
   .asResponse();
@@ -218,7 +288,15 @@ const { data: order, response: raw } = await client.v2021.orders
       region: 'FL',
       zip: '33004',
     },
-    items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }],
+    items: [
+      {
+        id: 'gB0NV05e',
+        preview_files: {},
+        print_files: {},
+        quantity: 1,
+        sku: 'BLC-3001-BLACK-L',
+      },
+    ],
     shipping: {},
   })
   .withResponse();

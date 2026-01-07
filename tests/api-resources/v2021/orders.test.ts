@@ -21,7 +21,15 @@ describe('resource orders', () => {
         region: 'FL',
         zip: '33004',
       },
-      items: [{ id: 'gB0NV05e', preview_files: {}, print_files: {}, quantity: 1, sku: 'BLC-3001-BLACK-L' }],
+      items: [
+        {
+          id: 'gB0NV05e',
+          preview_files: {},
+          print_files: {},
+          quantity: 1,
+          sku: 'BLC-3001-BLACK-L',
+        },
+      ],
       shipping: {},
     });
     const rawResponse = await responsePromise.asResponse();
