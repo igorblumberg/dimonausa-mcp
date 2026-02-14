@@ -1,5 +1,65 @@
 # Changelog
 
+## 2.0.0 (2026-02-14)
+
+Full Changelog: [v1.8.1...v2.0.0](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.8.1...v2.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Features
+
+* **mcp:** add initial server instructions ([e405a06](https://github.com/igorblumberg/dimonausa-mcp/commit/e405a061049b5011c8fac4af38e5aebf3e833ab5))
+
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([1c024e5](https://github.com/igorblumberg/dimonausa-mcp/commit/1c024e5658565bee1c0c3748c33040b5ac990540))
+* **client:** avoid removing abort listener too early ([cc3a5a5](https://github.com/igorblumberg/dimonausa-mcp/commit/cc3a5a5a68f711c943a9fa107edce0514f23fe65))
+* **docs:** fix mcp installation instructions for remote servers ([dbdfc85](https://github.com/igorblumberg/dimonausa-mcp/commit/dbdfc85c471045d470ec1d99750a02afce9c23f4))
+* **mcp:** allow falling back for required env variables ([137b284](https://github.com/igorblumberg/dimonausa-mcp/commit/137b28451edad0c90c38d2fd85aeb65dfac542cd))
+* **mcp:** correct code tool api output types ([e4007b0](https://github.com/igorblumberg/dimonausa-mcp/commit/e4007b05a35df72d8018a26e7be4c76390d21051))
+* **mcp:** fix env parsing ([6778dda](https://github.com/igorblumberg/dimonausa-mcp/commit/6778ddafae73b5847022fa2cc3ad11b694c2ef11))
+* **mcp:** fix options parsing ([2c757e7](https://github.com/igorblumberg/dimonausa-mcp/commit/2c757e7ea444d9f3d93f8f7129346bef3089f2a9))
+* **mcp:** update code tool prompt ([070d79a](https://github.com/igorblumberg/dimonausa-mcp/commit/070d79a20f70908a68124f31cda35be76f1ee9e8))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([714b874](https://github.com/igorblumberg/dimonausa-mcp/commit/714b8749f699356a21bf36c378ead6e356476b1f))
+* **ci:** upgrade `actions/github-script` ([8c1d925](https://github.com/igorblumberg/dimonausa-mcp/commit/8c1d925b21c93130133bd82c8ce920072a400ad1))
+* **client:** do not parse responses with empty content-length ([c413338](https://github.com/igorblumberg/dimonausa-mcp/commit/c4133385b9b44625b8e110a2297340aa75cb8813))
+* **client:** restructure abort controller binding ([95d8bd2](https://github.com/igorblumberg/dimonausa-mcp/commit/95d8bd27a922c198ff14ccbaa0f6ae179cfb9d6a))
+* **internal:** add health check to MCP server when running in HTTP mode ([f994c2f](https://github.com/igorblumberg/dimonausa-mcp/commit/f994c2fe4123ad079eadd90f7bec93a88aece6af))
+* **internal:** allow basic filtering of methods allowed for MCP code mode ([18b587a](https://github.com/igorblumberg/dimonausa-mcp/commit/18b587a2dfa853bde0663cf660e47901d6be1449))
+* **internal:** always generate MCP server dockerfiles and upgrade associated dependencies ([3c71870](https://github.com/igorblumberg/dimonausa-mcp/commit/3c71870c32120162dc91a6aee9db70e0cddad833))
+* **internal:** avoid type checking errors with ts-reset ([5668507](https://github.com/igorblumberg/dimonausa-mcp/commit/566850708aaa694a849a744d7f9f8479a8a42af3))
+* **internal:** codegen related update ([8e43e51](https://github.com/igorblumberg/dimonausa-mcp/commit/8e43e510241f4a42e00ac84090567ab891c1c537))
+* **internal:** codegen related update ([8db7c76](https://github.com/igorblumberg/dimonausa-mcp/commit/8db7c767a9d0da90b5eaf78ea4496a2620abf3f4))
+* **internal:** codegen related update ([d323ae3](https://github.com/igorblumberg/dimonausa-mcp/commit/d323ae3234f28699d16860b196e63f1678fd3082))
+* **internal:** codegen related update ([d6ca13d](https://github.com/igorblumberg/dimonausa-mcp/commit/d6ca13df888de761fde62a29c9fd51c0d33dc86e))
+* **internal:** codegen related update ([526da85](https://github.com/igorblumberg/dimonausa-mcp/commit/526da850b4df49884ffcb43c561888946ed5874f))
+* **internal:** codegen related update ([2c65c13](https://github.com/igorblumberg/dimonausa-mcp/commit/2c65c1330f7670f973499f8de429dee56d5fadc8))
+* **internal:** improve layout of generated MCP server files ([5f9fc27](https://github.com/igorblumberg/dimonausa-mcp/commit/5f9fc271b2bb0b70b1850c6720c29e7832fda6ec))
+* **internal:** refactor flag parsing for MCP servers and add debug flag ([38f434a](https://github.com/igorblumberg/dimonausa-mcp/commit/38f434aaba24e567e5ffd024227df2f37a3011cf))
+* **internal:** support oauth authorization code flow for MCP servers ([c6298bb](https://github.com/igorblumberg/dimonausa-mcp/commit/c6298bb684d6b3de99ed5647f01f393effe4f00b))
+* **internal:** update `actions/checkout` version ([bc380ed](https://github.com/igorblumberg/dimonausa-mcp/commit/bc380ed6e5645caef7fc0bcfe1f48753faa75d6b))
+* **internal:** update lock file ([c27413c](https://github.com/igorblumberg/dimonausa-mcp/commit/c27413c7cd50791b032aa79c8324121a2a23a0de))
+* **internal:** upgrade babel, qs, js-yaml ([3655a05](https://github.com/igorblumberg/dimonausa-mcp/commit/3655a0529aced95090ec77adc5e80cb87d26ec3a))
+* **mcp:** add intent param to execute tool ([98e0451](https://github.com/igorblumberg/dimonausa-mcp/commit/98e0451de55813b25ae1841b6c5bf3b939e7746d))
+* **mcp:** forward STAINLESS_API_KEY to docs search endpoint ([b94dd0e](https://github.com/igorblumberg/dimonausa-mcp/commit/b94dd0e0aeb1c2e3d8a68818096bd9a3e2c99e09))
+* **mcp:** pass intent param to execute handler ([b6be9f3](https://github.com/igorblumberg/dimonausa-mcp/commit/b6be9f3df6745bf1edfe6d2f4a0b306568fb197f))
+* **mcp:** remove deprecated tool schemes ([9a0cebf](https://github.com/igorblumberg/dimonausa-mcp/commit/9a0cebfff7f4c3fe0b55a342dca2cf92effe58a2))
+* **mcp:** up tsconfig lib version to es2022 ([e26d8ea](https://github.com/igorblumberg/dimonausa-mcp/commit/e26d8ea93285495fcfac0dd7433dd3a1a4f2f8c7))
+* **mcp:** upgrade dependencies ([fdaa9ea](https://github.com/igorblumberg/dimonausa-mcp/commit/fdaa9eab1e03e10fc364add72b73fbe22d9692e3))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([adac16b](https://github.com/igorblumberg/dimonausa-mcp/commit/adac16b9a21f6ae16d3a726bbbf19fa9713aaa42))
+
 ## 1.8.1 (2025-12-18)
 
 Full Changelog: [v1.8.0...v1.8.1](https://github.com/igorblumberg/dimonausa-mcp/compare/v1.8.0...v1.8.1)
